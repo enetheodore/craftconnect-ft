@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiRequest } from "../utils/apiUtils";
+
 
 const Signup: React.FC = () => {
   const navigate = useNavigate();
@@ -20,17 +22,9 @@ const Signup: React.FC = () => {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:3000/register/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      await apiRequest("/register", "POST", formData);
+      navigate("/login"); 
 
-      if (!res.ok) {
-        throw new Error("Signup failed");
-      }
-
-      navigate("/login"); // Redirect to login page after successful signup
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);

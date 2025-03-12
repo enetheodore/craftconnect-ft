@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { apiRequest } from "../utils/apiUtils";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -18,16 +19,11 @@ const Login: React.FC = () => {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:3000/login/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.message || "Login failed");
-      }
+      const data = await apiRequest<{ message: string; token: string }>(
+        "/login/login",
+        "POST",
+        formData,
+      );
 
       localStorage.setItem("token", data.token); // Store token in localStorage
       navigate("/dashboard"); // Redirect after successful login
