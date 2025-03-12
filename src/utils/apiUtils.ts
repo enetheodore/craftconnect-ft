@@ -24,3 +24,4 @@ export const apiRequest = async <T>( // T will be the expected response type
     throw new Error(error instanceof Error ? error.message : "Unexpected error");
   }
 };
+

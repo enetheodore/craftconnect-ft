@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { apiRequest } from "../utils/apiUtils";
+import { apiRequest } from "../../utils/apiUtils";
 
 const Login: React.FC = () => {
   const navigate = useNavigate();
@@ -25,8 +25,8 @@ const Login: React.FC = () => {
         formData,
       );
 
-      localStorage.setItem("token", data.token); // Store token in localStorage
-      navigate("/dashboard"); // Redirect after successful login
+      localStorage.setItem("token", data.token); 
+      navigate("/dashboard"); 
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);

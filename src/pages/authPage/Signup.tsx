@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { apiRequest } from "../utils/apiUtils";
+import { apiRequest } from "../../utils/apiUtils";
 
 
 const Signup: React.FC = () => {
