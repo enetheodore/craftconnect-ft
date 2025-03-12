@@ -1,27 +1,30 @@
-const BASE_URL = "http://localhost:3000"; // Base URL for the API
+import axios, { AxiosError, AxiosResponse } from "axios";
+
+const BASE_URL = "http://localhost:3000"; 
 
 // This helper function provides a type-safe and reusable API request function
-export const apiRequest = async <T>( // T will be the expected response type
+export const apiRequest = async <T>( 
   endpoint: string,
-  method: "GET" | "POST" | "PUT" | "DELETE" = "GET", // HTTP method
+  method: "GET" | "POST" | "PUT" | "DELETE" = "GET",
   body?: object, 
-): Promise<T> => {
+): Promise<AxiosResponse<T>> => {
   try {
-    const res = await fetch(`${BASE_URL}${endpoint}`, {
+    const res = await axios.request<T>({
+      url: `${BASE_URL}${endpoint}`,
       method,
-      headers: { "Content-Type": "application/json" },
-      body: body ? JSON.stringify(body) : undefined,
+      data: body,
     });
 
-    const data = await res.json();
-
-    if (!res.ok) {
-      throw new Error(data.message || "Something went wrong");
+    if (!res.data) {
+      throw new Error("No data returned from API");
     }
 
-    return data; 
+    return res;
   } catch (error) {
-    throw new Error(error instanceof Error ? error.message : "Unexpected error");
+    const err = error as AxiosError;
+    const errorMessage = (err.response?.data && typeof err.response.data === 'object' && 'message' in err.response.data) 
+      ? (err.response.data as { message: string }).message 
+      : "Something went wrong";
+    throw new Error(errorMessage);
   }
 };
-

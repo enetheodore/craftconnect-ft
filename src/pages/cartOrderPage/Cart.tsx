@@ -18,8 +18,8 @@ const CartPage: React.FC = () => {
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const data = await apiRequest<{ items: { id: string; name: string; price: number; quantity: number; }[] }>("/cart", "GET");
-        setCartItems(data.items);
+        const response = await apiRequest<{ items: { id: string; name: string; price: number; quantity: number; }[] }>("/cart", "GET");
+        setCartItems(response.data.items);
       } catch {
         setError("Failed to load cart items.");
       } finally {

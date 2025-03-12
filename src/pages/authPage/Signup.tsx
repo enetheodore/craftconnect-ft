@@ -78,7 +78,7 @@ const Signup: React.FC = () => {
           >
             <option value="customer">Customer</option>
             <option value="artisan">Artisan</option>
-            <option value="admin">Admin</option>
+            {/* <option value="admin">Admin</option> */}
           </select>
           <button
             type="submit"

@@ -11,8 +11,8 @@ const Home: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const data = await apiRequest<Product[]>("/products", "GET");
-        setProducts(data);
+        const response = await apiRequest<Product[]>("/products", "GET");
+        setProducts(response.data);
       } catch (error) {
         console.error("Error fetching products:", error);
       }

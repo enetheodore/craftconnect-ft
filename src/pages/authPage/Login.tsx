@@ -19,13 +19,13 @@ const Login: React.FC = () => {
     setError("");
 
     try {
-      const data = await apiRequest<{ message: string; token: string }>(
+      const response = await apiRequest<{ message: string; user: string }>(
         "/login/login",
         "POST",
         formData,
       );
 
-      localStorage.setItem("token", data.token); 
+      localStorage.setItem("user", JSON.stringify(response.data.user)); 
       navigate("/dashboard"); 
     } catch (err) {
       if (err instanceof Error) {
