@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiRequest } from "../../utils/apiUtils";
-
 import { Link } from "react-router-dom";
 
 const Signup = () => {
@@ -20,19 +19,22 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("");
+    setError(""); // Reset the error before making the request
 
     try {
+      // Make the API request using the apiRequest function
       const response = await apiRequest("/register", "POST", formData);
+
       console.log("Signup Response:", response.data);
-      navigate("/login");
+      navigate("/login"); // Redirect to the login page after successful signup
     } catch (err) {
       console.error("Signup Error:", err);
 
+      // Handle errors
       if (err instanceof Error) {
-        setError(err.message);
+        setError(err.message); // Set error message if it's an instance of Error
       } else {
-        setError("An unexpected error occurred.");
+        setError("An unexpected error occurred."); // Handle unexpected errors
       }
     }
   };
