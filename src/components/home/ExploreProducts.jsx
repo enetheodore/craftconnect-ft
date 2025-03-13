@@ -5,6 +5,8 @@ import { Box } from "@mui/material";
 import InputComp from "../ui/InputComp";
 import { TabelComp2 } from "../ui/TabelComp2";
 import { Star } from "lucide-react";
+import { useCart } from "../../context/CartContext";
+
 const columns = [
     { id: "number", label: "Number", minWidth: 20, align: "left" },
     { id: "image", label: "Image", minWidth: 20, align: "left" },
@@ -20,6 +22,15 @@ const ExploreProducts = () => {
   // artisanId: authUser._id,
   // images: "",
   // inventoryCount: 0,
+
+  const {
+    cart,
+    addItem,
+    removeItem,
+    updateItemQuantity,
+    clearCart,
+    getTotalPrice,
+  } = useCart();
 
   const [products, setProducts] = React.useState();
   const [currentProduct, setCurrentProduct] = React.useState();
@@ -80,47 +91,66 @@ const ExploreProducts = () => {
       setTotalPages(data?.totalPages);
     }
   }, [data]);
-  return <>
-{
-    products &&(
+  return (
+    <>
+      {products && (
         <Box>
-        <section className="max-w-7xl mx-auto py-16 px-6">
-        <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-12">
-          Explore Artisan Products
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {
-            products && (
+          <section className="max-w-7xl mx-auto py-16 px-6">
+            <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-12">
+              Explore Artisan Products
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {data && (
                 <>
-                {products.map((product) => (
-            <div key={product._id} className="bg-white rounded-lg shadow-md overflow-hidden">
-              <img src={`${import.meta.env.VITE_API_URL}/file/${product.images[0]}`} alt={product.title} className="w-full h-64 object-cover" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900">{product.title}</h3>
-                <p className="text-amber-600 font-medium mt-1">{product.description}</p>
-                <div className="flex items-center mt-2">
-                  <Star className="h-5 w-5 text-amber-400" />
-                  <span className="ml-1 text-sm text-gray-500">{product.price}</span>
-                  <span className="mx-2 text-gray-300">•</span>
-                  <span className="text-sm text-gray-500">{product.inventoryCount}</span>
-                </div>
-                <button className="mt-4 w-full bg-amber-600 text-white py-2 px-4 rounded-md hover:bg-amber-700 transition">
-                  Add To Cart
-                </button>
-              </div>
-            </div>
-          ))}
+                  {data.products.map((product) => (
+                    <div
+                      key={product._id}
+                      className="bg-white rounded-lg shadow-md overflow-hidden"
+                    >
+                      <img
+                        src={`${import.meta.env.VITE_API_URL}/file/${
+                          product.images[0]
+                        }`}
+                        alt={product.title}
+                        className="w-full h-64 object-cover"
+                      />
+                      <div className="p-6">
+                        <h3 className="text-xl font-semibold text-gray-900">
+                          {product.title}
+                        </h3>
+                        <p className="text-amber-600 font-medium mt-1">
+                          {product.description}
+                        </p>
+                        <div className="flex items-center mt-2">
+                          <Star className="h-5 w-5 text-amber-400" />
+                          <span className="ml-1 text-sm text-gray-500">
+                            {product.price}
+                          </span>
+                          <span className="mx-2 text-gray-300">•</span>
+                          <span className="text-sm text-gray-500">
+                            {product.inventoryCount}
+                          </span>
+                        </div>
+                        <button
+                          className="mt-4 w-full bg-amber-600 text-white py-2 px-4 rounded-md hover:bg-amber-700 transition"
+                          onClick={() => {
+                            console.log(product);
+                            addItem(product);
+                          }}
+                        >
+                          Add To Cart
+                        </button>
+                      </div>
+                    </div>
+                  ))}
                 </>
-            )
-          }
-        </div>
-      </section>
-     
-    
+              )}
+            </div>
+          </section>
         </Box>
-    )
-}
-  </>;
+      )}
+    </>
+  );
 };
 
 export default ExploreProducts;

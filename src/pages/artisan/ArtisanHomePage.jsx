@@ -1,10 +1,8 @@
 import ArtisnaDashboard from "../../components/artisan/ArtisnaDashboard";
 import { Box } from "@mui/material";
-import React from "react";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Topbar from "../../components/topbar/Topbar";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import DashboardContent from "../../components/DashboardContent/DashboardContent";
 import ProductPage from "../ProductPage";
 const ArtisanHomePage = () => {
   return (

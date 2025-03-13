@@ -6,9 +6,9 @@ import ExploreProducts from './ExploreProducts'
 const Explore = () => {
   return (
     <div>
-      <HomeNav />
+     
       <ExploreProducts />
-      <Footer />
+   
     </div>
   )
 }

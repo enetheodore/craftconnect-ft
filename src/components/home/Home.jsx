@@ -14,14 +14,14 @@ const Home = () => {
 
   return (
     <div>
-      <HomeNav />
+     
       <Hero />
 
       <Features />
       <FeaturedArtisan />
 
       <Cto />
-      <Footer />
+   
     </div>
   );
 };
