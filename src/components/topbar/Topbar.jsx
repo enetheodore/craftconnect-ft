@@ -13,10 +13,10 @@ import { Logout, Notifications, Settings } from "@mui/icons-material";
 import LanguageSelector from "../general/LanguageSelector";
 import { useAuthContext } from "../../contexts/AuthContext";
 
-const Topbar = ({role}) => {
-    const {isDarkMode} = useThemeContext()
-    const theme = useTheme()
-    const {logout} = useAuthContext()
+const Topbar = ({ role, navItem }) => {
+  const { isDarkMode } = useThemeContext();
+  const theme = useTheme();
+  const { logout } = useAuthContext();
   return (
     // <Box >
     //   <AppBar  sx={{
@@ -41,21 +41,33 @@ const Topbar = ({role}) => {
     //     </Toolbar>
     //   </AppBar>
     // </Box>
-    <Box className={``} sx={{display:"flex",justifyContent:"space-between", alignItems:"center", paddingInline:"30px", position:"fixed", width:"100%",   backgroundColor: theme.palette.background.default,zIndex:"1000"}}>
-       <Box className="">Hello</Box>
-    <Box>{role}</Box>
+    <Box
+      className={``}
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        paddingInline: "30px",
+        position: "fixed",
+        width: "100%",
+        backgroundColor: theme.palette.background.default,
+        zIndex: "1000",
+      }}
+    >
+      <Box className="">Hello</Box>
+      <Box>{role}</Box>
+      {navItem}
 
-       <Box sx={{display:"flex",alignItems:"center"}}>
-       <LanguageSelector />
-       <Notifications />
-       <ThemeToggler />
-       <Settings/>
-       <IconButton  onClick={()=>logout()}>
-       <Logout />
-       </IconButton>
+      <Box sx={{ display: "flex", alignItems: "center" }}>
+        <LanguageSelector />
+        <Notifications />
+        <ThemeToggler />
+        <Settings />
+        <IconButton onClick={() => logout()}>
+          <Logout />
+        </IconButton>
         <Avatar />
-        
-       </Box>
+      </Box>
     </Box>
   );
 };

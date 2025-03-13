@@ -95,7 +95,7 @@ const ExploreProducts = () => {
     <>
       {products && (
         <Box>
-          <section className="max-w-7xl mx-auto py-16 px-6">
+          <section className="max-w-7xl mx-auto py-4 px-6">
             <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-12">
               Explore Artisan Products
             </h2>

@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { CarCrash, Home, Person } from "@mui/icons-material";
 import { Drawer, List, ListItem, ListItemText } from "@mui/material";
-const Sidebar = () => {
+const Sidebar = ({ children }) => {
   const { isDarkMode } = useThemeContext();
   const drawerWidth = 240;
   const theme = useTheme();
@@ -56,72 +56,7 @@ const Sidebar = () => {
               },
             }}
           >
-            <Box
-              sx={{
-                position: "fixed",
-                borderRight: `${
-                  theme.palette.mode == "light"
-                    ? " 1px solid rgb(214, 216, 218)"
-                    : " 1px solid rgb(50, 54, 58)"
-                }`,
-                width: "240px",
-                display: "flex",
-                justifyContent: "start",
-                alignItems: "center",
-                zIndex: "1000",
-                backgroundColor: theme.palette.background.default,
-              }}
-            >
-              {/* <h1 className="text_lg text_bold">
-                {" "}
-                <img src={logo} width={50} height={50} alt="" />{" "}
-              </h1> */}
-            </Box>
-            <Box
-              className=""
-              sx={{ paddingTop: "80px", paddingInline: "10px" }}
-            >
-              <Button
-                sx={{
-                  backgroundColor: "rgba(255, 0, 0, 0.1)",
-                  textAlign: "start",
-                  color: colors.red[500],
-                  display: "flex",
-                  justifyContent: "start",
-                  padding: "10px",
-                  gap: "20px",
-                }}
-                className="w_full"
-              >
-                <Home /> <span className="title_sm">Home</span>
-              </Button>
-              <Button
-                sx={{
-                  textAlign: "start",
-                  color: colors.grey[500],
-                  display: "flex",
-                  justifyContent: "start",
-                  padding: "10px",
-                  gap: "20px",
-                }}
-                className="w_full"
-              >
-                <CarCrash /> <span className="title_sm">Product</span>
-              </Button>
-              <Button
-                sx={{
-                  textAlign: "start",
-                  color: colors.grey[500],
-                  display: "flex",
-                  justifyContent: "start",
-                  padding: "10px",
-                  gap: "20px",
-                }}
-                className="w_full"
-              >
-                <Person /> <span className="title_sm">Orders</span>
-              </Button>
-            </Box>
+            {children}
           </Drawer>
         </Box>
       )}
