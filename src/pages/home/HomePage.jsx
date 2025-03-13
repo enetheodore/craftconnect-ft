@@ -1,4 +1,5 @@
-import Login from "../login/Login";
+import Login from "../Auth/Login";
+import Signup from "../Auth/Signup";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "../../components/home/Home";
 import Explore from "../../components/home/Explore";
@@ -15,6 +16,7 @@ const HomePage = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="/register" element={<Login />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/cart" element={<CartList />} />

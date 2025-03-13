@@ -72,6 +72,12 @@ export const loginAdmin = async (data) => {
   return authUser;
 };
 
+export const signup = async (data) => {
+  const authUser = await makeApiRequest("/register", data, "POST", "");
+  console.log(authUser); // Adjust the endpoint as needed
+  return authUser;
+};
+
 export const getProductList = async () => {
   const products = await makeApiRequest("/product", {}, "GET", "");
   console.log(products); // Adjust the endpoint as needed
