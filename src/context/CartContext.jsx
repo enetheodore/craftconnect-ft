@@ -28,7 +28,7 @@ const CartProvider = ({ children }) => {
             : cartItem
         );
       }
-      return [...prevCart, { ...item, quantity: 1 }];
+      return [...prevCart, { ...item, quantity: 1, productId: item._id }];
     });
   };
 

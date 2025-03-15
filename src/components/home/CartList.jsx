@@ -1,5 +1,6 @@
 import React from "react";
 import { useCart } from "../../context/CartContext";
+import CheckOut from "./CheckOut";
 
 const CartList = () => {
   const {
@@ -71,12 +72,7 @@ const CartList = () => {
       <div className="flex justify-between">
         {getTotalPrice() != 0 ? (
           <>
-            <button
-              className="mt-3 px-4 py-2 bg-green-500 text-white rounded hover:bg-red-600"
-              onClick={() => {}}
-            >
-              Check Out
-            </button>
+            <CheckOut totalPrice={getTotalPrice()} />
           </>
         ) : (
           <></>

@@ -11,6 +11,7 @@ import ListOfProducts from "../../components/product/ListOfProducts";
 import ExploreProducts from "../../components/home/ExploreProducts";
 import { useCart } from "../../context/CartContext";
 import CartList from "../../components/home/CartList";
+import ListOfOrders from "../../components/orders/ListOfOrders";
 
 const CustomerHomePage = () => {
   const theme = useTheme();
@@ -66,32 +67,38 @@ const CustomerHomePage = () => {
                 <Home /> <span className="title_sm">Home</span>
               </Button>
             </Link>
-            <Button
-              sx={{
-                textAlign: "start",
-                color: colors.grey[500],
-                display: "flex",
-                justifyContent: "start",
-                padding: "10px",
-                gap: "20px",
-              }}
-              className="w_full"
-            >
-              <Shop2Outlined /> <span className="title_sm">Product</span>
-            </Button>
-            <Button
-              sx={{
-                textAlign: "start",
-                color: colors.grey[500],
-                display: "flex",
-                justifyContent: "start",
-                padding: "10px",
-                gap: "20px",
-              }}
-              className="w_full"
-            >
-              <ShoppingBag /> <span className="title_sm">Orders</span>
-            </Button>
+            <Link to="/product">
+              <Button
+                sx={{
+                  backgroundColor: "rgba(255, 0, 0, 0.1)",
+                  textAlign: "start",
+                  color: colors.red[500],
+                  display: "flex",
+                  justifyContent: "start",
+                  padding: "10px",
+                  gap: "20px",
+                }}
+                className="w_full"
+              >
+                <Shop2Outlined /> <span className="title_sm">Product</span>
+              </Button>
+            </Link>
+            <Link to="/order">
+              <Button
+                sx={{
+                  backgroundColor: "rgba(255, 0, 0, 0.1)",
+                  textAlign: "start",
+                  color: colors.red[500],
+                  display: "flex",
+                  justifyContent: "start",
+                  padding: "10px",
+                  gap: "20px",
+                }}
+                className="w_full"
+              >
+                <ShoppingBag /> <span className="title_sm">Orders</span>
+              </Button>
+            </Link>
           </Box>
         </Sidebar>
 
@@ -118,6 +125,7 @@ const CustomerHomePage = () => {
             <Routes>
               <Route path="/" element={<ExploreProducts />} />
               <Route path="/cart" element={<CartList />} />
+              <Route path="/order" element={<ListOfOrders />} />
 
               <Route path="/product/:pageNo" element={<ProductPage />} />
             </Routes>

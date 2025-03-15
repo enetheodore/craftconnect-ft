@@ -101,3 +101,17 @@ export const createProduct = async (data) => {
   console.log(products); // Adjust the endpoint as needed
   return products;
 };
+
+// Orders 
+export const createOrder = async (data) => {
+  const orders = await makeApiRequest("/order/create", data, "POST", "");
+  console.log(orders); // Adjust the endpoint as needed
+  return orders;
+};
+export const getOrderList = async (userId) => {
+  console.log(userId); // Adjust the endpoint as needed
+
+  const orders = await makeApiRequest(`/order?userId=${userId}`, {}, "GET", "");
+  console.log(orders); // Adjust the endpoint as needed
+  return orders;
+};
