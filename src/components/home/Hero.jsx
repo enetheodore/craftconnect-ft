@@ -19,12 +19,12 @@ const Hero = () => {
         >
           Explore Crafts
         </Link>
-        <a
-          href="#"
+        <Link
+          to="/signup"
           className="px-6 py-3 border border-amber-600 text-amber-600 rounded-md hover:bg-amber-50 transition"
         >
           Become an Artisan
-        </a>
+        </Link>
       </div>
     </div>
   </section>
