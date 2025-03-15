@@ -30,12 +30,12 @@ const SelectCatagory = ({setCatagoryId, catagoryId}) => {
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <InputLabel id="demo-simple-select-label">Category</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={age}
-          label="Age"
+          label="Category"
           onChange={handleChange}
         >
           {data?.catagories.map((catagory) => (

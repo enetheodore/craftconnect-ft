@@ -1,15 +1,17 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Craft-Connect -Frontend 
 
-Currently, two official plugins are available:
+Artisan E-commers platform.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Home Page](src/assets/craft-connect_home_page.png)
+
 📋 Table of Contents
+
   1. 🤖 Introduction
   2. ⚙️ Tech Stack
-  3. 🚀 Getting Started
+  3. 🛠️ Features  
+  4. 🗓️ Planned Features
+  5. 🚀 Getting Started
 
 🤖 Introduction
 
@@ -35,6 +37,32 @@ The platform's goals are to drive sales, foster community, and ensure secure tra
 - **ApexCharts**: A charting library for visualizing data.
 - **React Router**: A library for routing in React applications.
 - **React Toastify**: A library for providing notifications in React.
+
+🛠️ Features
+
+- **Shopping Cart Features**:
+  - **Add to Cart**: Allows users to add products to their cart for purchase.
+  - **Remove from Cart**: Enables users to easily remove items from their cart.
+  - **Update Item Quantity**: Users can adjust the quantity of products in their cart.
+  - **Clear Cart**: Provides an option for users to empty their entire cart.
+  - **Place Order**: Users can finalize their purchase, and orders are securely stored in the database.
+- **Security and Authentication**:
+  - **User Authentication**: Ensures secure login and protection of user data.
+- **Admin Panel**:
+  - **Category Management**: Admins can create, edit, and organize product categories.
+  - **Category Descriptions**: Admins have the ability to add detailed descriptions for categories.
+- **Artisan Tools**:
+  - **Product Management**: Artisans can upload products and assign them to categories.
+  - **Image Upload**: Allows artisans to add images to their product listings.
+  - **Pricing**: Artisans can set and update product prices.
+- **User Experience**:
+  - **Product Information**: Users have access to detailed product descriptions and specifications.
+  - **Responsive Design**: The application is optimized for all devices, ensuring a consistent user experience.
+
+🗓️ Planned Features
+
+- **Admin Dashboard**: Features add like AliExpress.
+- **real-time order tracking**: Users can track their orders in real time.
 
 🚀 Getting Started
 
