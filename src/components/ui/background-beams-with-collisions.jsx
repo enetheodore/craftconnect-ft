@@ -65,7 +65,7 @@ export const BackgroundBeamsWithCollision = ({ children, className }) => {
     <div
       ref={parentRef}
       className={cn(
-        "h-96 md:h-[40rem] bg-gradient-to-b from-white to-neutral-100 white:from-neutral-950 white:to-neutral-800 relative flex items-center w-full justify-center overflow-hidden",
+        "h-40 md:h-[40rem] bg-gradient-to-b from-white to-neutral-100 white:from-neutral-950 white:to-neutral-800 relative flex items-center w-full justify-center overflow-hidden",
         // h-screen if you want bigger
         className
       )}
@@ -179,7 +179,7 @@ const CollisionMechanism = React.forwardRef(
             repeatDelay: beamOptions.repeatDelay || 0,
           }}
           className={cn(
-            "absolute left-0 top-20 m-auto h-14 w-px rounded-full bg-gradient-to-t from-indigo-500 via-purple-500 to-transparent",
+            "absolute left-0 top-0 m-auto h-4 w-px rounded-full bg-gradient-to-t from-indigo-500 via-purple-500 to-transparent",
             beamOptions.className
           )}
         />
