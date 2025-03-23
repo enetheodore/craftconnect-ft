@@ -85,24 +85,7 @@ const ListOfProducts = () => {
         <Box>
           <Box sx={{ display: { lg: "flex" }, gap: "20px" }}>
           
-            <InputComp
-              type="text"
-              name="phone"
-              label="Phone Number"
-            //   value={phone}
-            //   onChange={(name, value) => setPhone(value)}
-              placeholder="Enter Phone Number"
-              sx={{ paddingBottom: "10px" }}
-            />
-            <InputComp
-              type="text"
-              name="firstName"
-              label="First Name"
-            //   value={firstName}
-            //   onChange={(name, value) => setProducts(value)}
-              placeholder="Enter Password"
-              sx={{ paddingBottom: "10px" }}
-            />
+            
           </Box>
           <TabelComp2
             rows={products}

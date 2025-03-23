@@ -68,24 +68,24 @@ export { makeApiRequest, uploadImageApiRequest };
 
 export const loginAdmin = async (data) => {
   const authUser = await makeApiRequest("/login/login", data, "POST", "");
-  console.log(authUser); // Adjust the endpoint as needed
+  console.log(authUser); 
   return authUser;
 };
 
 export const signup = async (data) => {
   const authUser = await makeApiRequest("/register", data, "POST", "");
-  console.log(authUser); // Adjust the endpoint as needed
+  console.log(authUser); 
   return authUser;
 };
 
 export const getProductList = async () => {
   const products = await makeApiRequest("/product", {}, "GET", "");
-  console.log(products); // Adjust the endpoint as needed
+  console.log(products); 
   return products;
 };
 export const getCatagoryList = async () => {
   const products = await makeApiRequest("/category", {}, "GET", "");
-  console.log(products); // Adjust the endpoint as needed
+  console.log(products); 
   return products;
 };
 
@@ -93,25 +93,25 @@ export const getCatagoryList = async () => {
 
 export const createCatagory = async (data) => {
   const products = await makeApiRequest("/category/create", data, "POST", "");
-  console.log(products); // Adjust the endpoint as needed
+  console.log(products); 
   return products;
 };
 export const createProduct = async (data) => {
   const products = await makeApiRequest("/product/create", data, "POST", "");
-  console.log(products); // Adjust the endpoint as needed
+  console.log(products); 
   return products;
 };
 
 // Orders 
 export const createOrder = async (data) => {
   const orders = await makeApiRequest("/order/create", data, "POST", "");
-  console.log(orders); // Adjust the endpoint as needed
+  console.log(orders); 
   return orders;
 };
 export const getOrderList = async (userId) => {
-  console.log(userId); // Adjust the endpoint as needed
+  console.log(userId); 
 
   const orders = await makeApiRequest(`/order?userId=${userId}`, {}, "GET", "");
-  console.log(orders); // Adjust the endpoint as needed
+  console.log(orders); 
   return orders;
 };

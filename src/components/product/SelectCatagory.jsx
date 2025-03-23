@@ -8,13 +8,11 @@ import { useQuery } from "@tanstack/react-query";
 import { getCatagoryList } from "../../utilities/makeApiRequest";
 
 const SelectCatagory = ({setCatagoryId, catagoryId}) => {
-  const [age, setAge] = React.useState("");
   const [catagories, setCatagories] = React.useState();
 
   const handleChange = (event) => {
     console.log(event.target.value);
     setCatagoryId(event.target.value)
-    setAge(event.target.value);
   };
 
   const { data, error, isLoading } = useQuery({
@@ -34,7 +32,7 @@ const SelectCatagory = ({setCatagoryId, catagoryId}) => {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={age}
+          value={catagories}
           label="Category"
           onChange={handleChange}
         >
